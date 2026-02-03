@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Orden de Pupusas 🫓</title>
+    <link rel="stylesheet" href="app/estilo.css">
+
+    <!-- Open Graph -->
+    <meta property="og:image" content="https://tu-usuario.github.io/portada.png">
+    <meta property="og:url" content="https://tu-usuario.github.io/pupusas-order.html">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🫓 Orden de Pupusas 🫓</h1>
+            <p>¡Organiza tu pedido grupal de pupusas!</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Formulario para agregar participante -->
+            <div class="section">
+                <h2>➕ Agregar Participante</h2>
+                <div class="form-group">
+                    <label for="nombreParticipante">Nombre del participante:</label>
+                    <input type="text" id="nombreParticipante" placeholder="Ej: David, Keila, Nick...">
+                </div>
+
+                <div class="masa-types">
+                    <!-- Pupusas de Maíz -->
+                    <div class="masa-card">
+                        <h3>🌽 Pupusas de Maíz</h3>
+                        <div class="selector-container">
+                            <div class="custom-select">
+                                <input type="text" 
+                                       class="select-input" 
+                                       id="searchMaiz" 
+                                       placeholder="Buscar ingrediente..."
+                                       autocomplete="off">
+                                <div class="select-dropdown" id="dropdownMaiz"></div>
+                            </div>
+                            <button class="add-ingrediente-btn" onclick="agregarIngredienteDesdeSearch('maiz')">+ Agregar</button>
+                        </div>
+                        <div id="ingredientesMaiz" class="ingredientes-seleccionados"></div>
+                    </div>
+
+                    <!-- Pupusas de Arroz -->
+                    <div class="masa-card">
+                        <h3>🍚 Pupusas de Arroz</h3>
+                        <div class="selector-container">
+                            <div class="custom-select">
+                                <input type="text" 
+                                       class="select-input" 
+                                       id="searchArroz" 
+                                       placeholder="Buscar ingrediente..."
+                                       autocomplete="off">
+                                <div class="select-dropdown" id="dropdownArroz"></div>
+                            </div>
+                            <button class="add-ingrediente-btn" onclick="agregarIngredienteDesdeSearch('arroz')">+ Agregar</button>
+                        </div>
+                        <div id="ingredientesArroz" class="ingredientes-seleccionados"></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px; text-align: center;">
+                    <button class="btn" onclick="agregarParticipante()">Agregar al Pedido</button>
+                    <button class="btn btn-secondary" onclick="limpiarFormulario()">Limpiar</button>
+                </div>
+            </div>
+
+            <!-- Lista de participantes -->
+            <div class="section">
+                <h2>👥 Participantes del Pedido</h2>
+                <div id="listaParticipantes" class="participant-list"></div>
+            </div>
+
+            <!-- Resumen del pedido -->
+            <div class="resumen">
+                <h2>📋 Resumen del Pedido</h2>
+                <div id="resumenPedido"></div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="btn btn-danger" onclick="limpiarTodo()">🗑️ Limpiar Todo el Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app/app.js"></script>
+</body>
+</html>
